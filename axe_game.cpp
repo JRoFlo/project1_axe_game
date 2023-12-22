@@ -20,7 +20,7 @@ int main()
     InitWindow(width, length, "Jordan's Window"); //This function will create a window with the dimensions 1280px x 720px
 
     //Infinite While Loop to keep the canvas on screen and drawing properly.
-    while(true)
+    while(WindowShouldClose() != true) //or while(WindowShouldClose() == false)
     {
         BeginDrawing(); //Set up the canvas
         ClearBackground(PURPLE); //Clear the background with a color to prevent flickering
@@ -36,4 +36,5 @@ int main()
         BeginDrawing(); - Setup
         EndDrawing(); - Teardown
         ClearBackground(COLOR PARAMETER); - Clears the Canvas
+        WindowShouldClose() - This function returns a false bool, UNLESS we hit the escape key or the X (exit button)
 */
