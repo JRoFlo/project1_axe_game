@@ -23,6 +23,7 @@ int main()
     while(WindowShouldClose() != true) //or while(WindowShouldClose() == false)
     {
         BeginDrawing(); //Set up the canvas
+        DrawCircle(640, 360, 25.0, RED);
         ClearBackground(PURPLE); //Clear the background with a color to prevent flickering
         EndDrawing();
     }
