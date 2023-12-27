@@ -12,7 +12,7 @@
 
 int main()
 {
-    //Window Dimensions
+    //Window Dimensions - (x, y) coordinate (0, 0) is located in the top left corner
     int width{1280};
     int height{720};
  
@@ -35,14 +35,18 @@ int main()
 
         //Game Logic Begins
         DrawCircle(circle_x, circle_y, circle_rad, RED);
-        if(IsKeyDown(KEY_D))
-            circle_x = circle_x + 2;
-        if(IsKeyDown(KEY_A))
-            circle_x = circle_x - 2;
-        if(IsKeyDown(KEY_W))
-            circle_y = circle_y - 2;
-        if(IsKeyDown(KEY_S))
-            circle_y = circle_y + 2;
+        //Right Movement
+        if(IsKeyDown(KEY_D) && (circle_x + circle_rad < width)) //If the D Key is being pressed && as big as the window's width
+            circle_x += 3; //Change the x coordinate by 2 pixels each frame
+        //Left Movement
+        if(IsKeyDown(KEY_A) && (circle_x - circle_rad > 0))
+            circle_x -= 3;
+        //Up Movement - The top most edge is the y coordinate 0
+        if(IsKeyDown(KEY_W) && (circle_y - circle_rad > 0))
+            circle_y -= 3;
+        //Down Movement - The bottom most edge is the y coordinate height
+        if(IsKeyDown(KEY_S) && (circle_y + circle_rad < height))
+            circle_y += 3;
         //Game Logic Ends
         EndDrawing();
     }
