@@ -20,6 +20,10 @@ int main()
     int circle_x{640};
     int circle_y{600};
     int circle_rad{25};
+    int left_circle_edge{circle_x - circle_rad}; //The Left Edge of the Circle - Takes the x coordinate and subtracts the radius to get the left edge coordinate
+    int right_circle_edge{circle_x + circle_rad}; //The Right Edge of the Circle - Takes the x coordinate and adds the radius to get the right edge coordinate
+    int upper_circle_edge{circle_y - circle_rad}; //The Upper Edge of the Circle - Takes the y coordinate and subtracts the radius to get the upper edge coordinate
+    int bottom_circle_edge{circle_y + circle_rad}; //The Bottom Edge of the Circle - Takes the y coordinate and adds the radius to get the bottom edge coordinate
 
     //Axe Coordinates
     int axe_x{440}; //Starts a little bit left of the middle
@@ -27,6 +31,10 @@ int main()
     int axe_width{50};
     int axe_height{50};
     int axe_direction{7};
+    int left_axe_edge{axe_x}; //The Left Axe Edge - The Rectangle Function starts from the top LEFT corner, so this is the left edge
+    int right_axe_edge{axe_x + axe_width}; //The Right Axe Edge - Take the starting x coordinate and add the width to get the right edge
+    int upper_axe_edge{axe_y}; //The Upper Axe Edge - The rectangle function starts from the TOP left corner, so this is the upper edge too
+    int bottom_axe_edge{axe_y + axe_height}; //The Bottom Axe Edge - Take the starting y coordinate and (counterintuitively) add to move downward and get the bottom edge
 
     //InitWindow takes three parameters - InitWindow(int width, int height, string title)
     InitWindow(width, height, "Jordan's Window"); //This function will create a window with the dimensions 1280px x 720px
@@ -34,7 +42,7 @@ int main()
 
     //Set a Target Value for FPS so the computer doesnt update so many times
     SetTargetFPS(60);
-    //Infinite While Loop to keep the canvas on screen and drawing properly.
+    //Infinite While Loop to keep the canvas on screen and drawing properly until the user hits ESC
     while(WindowShouldClose() != true) //or while(WindowShouldClose() == false)
     {
         BeginDrawing(); //Set up the canvas
@@ -79,4 +87,15 @@ int main()
         IsKeyDown(KEY_D) - Checks to see if the key D is being pressed
         DrawRectangle(posX, posY, width, height, color);
         DrawCircle();
+
+    Collision Detection Logic:
+        I predict the logic will look something like this pseudocode, 
+            If Object1 has the same coordinates of Object2
+                then Collision is detected
+                Enter what you want to do from then
+            Else
+                Keep the game running
+        
+        Notes:
+            **Notes are embedded within the code**
 */
